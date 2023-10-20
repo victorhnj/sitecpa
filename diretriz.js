@@ -1,4 +1,4 @@
-fetch('https://79y0unlb.api.sanity.io/v2021-10-21/data/query/sitecpa?query=*%5B_type+%3D%3D+%27diretriz%27%5D+%7C+order%28ordem+asc%29+%7B%0A++%22ordem%22%3A+ordem%2C%0A++%22titulo%22%3A+titulo%2C%0A++%22descricao%22%3A+descricao%0A%7D')
+fetch('https://79y0unlb.api.sanity.io/v2021-10-21/data/query/sitecpa?query=*%5B_type+%3D%3D+%22diretriz%22%5D%5B0..2%5D%7Bordem%2Cdescricao%2Ctitulo%7D+%7C+order%28_createdAt+asc%29')
   .then(response => response.json())
   .then(data => {
     const container = document.querySelector('.TabsConteudo');

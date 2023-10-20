@@ -1,5 +1,5 @@
 function fetchDobanco() {
-    const url = 'https://79y0unlb.api.sanity.io/v2021-10-21/data/query/sitecpa?query=*%5B_type+%3D%3D+%22estatuto_cpa%22%5D%7Btitulo,descricao%7D';
+    const url = 'https://79y0unlb.api.sanity.io/v2021-10-21/data/query/sitecpa?query=*%5B_type+%3D%3D+%22estatuto_cpa%22%5D%5B0..2%5D%7Btitulo%2Cdescricao%7D+%7C+order%28_createdAt+asc%29';
   
     fetch(url)
       .then(response => response.json())

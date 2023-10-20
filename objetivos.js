@@ -1,4 +1,4 @@
-fetch('https://79y0unlb.api.sanity.io/v2021-10-21/data/query/sitecpa?query=*%5B_type+%3D%3D+%22objetivo%22%5D%7Bdescricao_title%2C+sub_objetivo%7D')
+fetch('https://79y0unlb.api.sanity.io/v2021-10-21/data/query/sitecpa?query=*%5B_type+%3D%3D+%22objetivo%22%5D%5B0..1%5D%7Bdescricao_title%2Csub_objetivo%7D+%7C+order%28_createdAt+asc%29')
     .then(response => response.json())
     .then(data => {
         const mainContainer = document.querySelector('.ConteudoObjetivoTexto');
