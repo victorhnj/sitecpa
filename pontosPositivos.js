@@ -1,17 +1,17 @@
-fetch('https://79y0unlb.api.sanity.io/v2021-10-21/data/query/sitecpa?query=*%5B_type+%3D%3D+%22pontosPositivos%22%5D%7Btitulo%2Cdescricao%7D')
+fetch('https://79y0unlb.api.sanity.io/v2021-10-21/data/query/sitecpa?query=*%5B_type+%3D%3D+%22pontosPositivos%22%5D%5B0..3%5D+%7Btitulo%2Cdescricao%7D+%7C+order%28ordem+asc%29')
   .then(response => response.json())
   .then(data => {
 
     let quantidadeTopicos = 0; // Para poder criar a quantidade certa de div topico
-
+      console.log(data)
     const container = document.querySelector('.ConteudoPontosTextoTopicos');
 
     data.result.forEach(item => {
-      if(quantidadeTopicos === 0 || quantidadeTopicos === 2){
+      //if(quantidadeTopicos === 0 || quantidadeTopicos === 2){
         // criando outras divs, para dar certo a estilização
         const topico = document.createElement("div")
         topico.classList.add("TOPICO")
-      }
+      //}
 
       const ConteudoPontosTextoTopicosItem = document.createElement("div")
       ConteudoPontosTextoTopicosItem.classList.add("ConteudoPontosTextoTopicosItem")
