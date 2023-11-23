@@ -4,13 +4,10 @@ function fetchSatisfacaoBiopark() {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            const container = document.querySelector('.ComissaoSection1DiretorConteudoItensResultado');
+            const container = document.querySelector('.Fig2');
 
             if (data.result && data.result.length > 0) {
                 const result = data.result[0];
-
-                const div = document.createElement('div');
-                div.className = 'ComissaoSection1DiretorConteudoItens ComissaoSection1DiretorConteudoItensResultado';
 
                 const picture = document.createElement('picture');
                 const img = document.createElement('img');
@@ -23,9 +20,9 @@ function fetchSatisfacaoBiopark() {
                 divItensTitulo.className = 'ItensTitulo';
                 divItensTitulo.textContent = result.avalicao;
 
-                div.appendChild(picture);
-                div.appendChild(divItensTitulo);
-                container.appendChild(div);
+                container.innerHTML = '';
+                container.appendChild(picture);
+                container.appendChild(divItensTitulo);
             }
         })
         .catch(error => {
@@ -33,5 +30,4 @@ function fetchSatisfacaoBiopark() {
         });
 }
 
-// Chama a função para buscar os dados do banco
 fetchSatisfacaoBiopark();
