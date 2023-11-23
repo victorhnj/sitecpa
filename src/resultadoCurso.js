@@ -4,13 +4,12 @@ function fetchSatisfacaoCurso() {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            const container = document.querySelector('.ComissaoSection1DiretorConteudoItensResultado');
+            const container = document.querySelector('.Fig1');
 
             if (data.result && data.result.length > 0) {
                 const result = data.result[0];
 
-                const div = document.createElement('div');
-                div.className = 'ComissaoSection1DiretorConteudoItens ComissaoSection1DiretorConteudoItensResultado';
+               
 
                 const picture = document.createElement('picture');
                 const img = document.createElement('img');
@@ -23,9 +22,9 @@ function fetchSatisfacaoCurso() {
                 divItensTitulo.className = 'ItensTitulo';
                 divItensTitulo.textContent = result.avalicao;
 
-                div.appendChild(picture);
-                div.appendChild(divItensTitulo);
-                container.appendChild(div);
+                container.innerHTML = '';
+                container.appendChild(picture);
+                container.appendChild(divItensTitulo);
             }
         })
         .catch(error => {
@@ -33,5 +32,4 @@ function fetchSatisfacaoCurso() {
         });
 }
 
-// Chama a função para buscar os dados do banco
 fetchSatisfacaoCurso();
